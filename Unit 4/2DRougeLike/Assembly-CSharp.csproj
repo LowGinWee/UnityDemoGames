@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scenes\Game\CONSTANTS.cs" />
     <Compile Include="Assets\Scenes\Game\GameController.cs" />
+    <Compile Include="Assets\Scenes\Game\Player.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/notgi/games/2DRougeLike/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
