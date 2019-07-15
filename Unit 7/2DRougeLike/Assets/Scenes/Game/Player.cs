@@ -15,11 +15,15 @@ public class Player : MonoBehaviour
 
     private Vector2 targetPos;
     private Vector2 currentPos;
-
-
     private Animator animator;
+
+    public int health;
+    public int keys;
+    
     void Start()
     {
+        health = CONSTANTS.START_HEALTH;
+        keys = 0;
         animator = this.gameObject.GetComponent<Animator>();
         playerState = PLAYER_STATES.IDLE;
         targetPos = new Vector2(0, 0.7f);
@@ -79,6 +83,32 @@ public class Player : MonoBehaviour
         }
         return true;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("You Collided with: " + col.gameObject.name);
+        if (col.gameObject.name == "Enemy")
+        {
+            health -= 1;
+        }
+        else if (col.gameObject.name == "flask")
+        {
+            if ((health + CONSTANTS.FLASK_HP) > CONSTANTS.START_HEALTH)
+            {
+                health = CONSTANTS.START_HEALTH;
+            }
+            else health += 2;
+            Destroy(col.gameObject);
+        }
+        else if (col.gameObject.name == "key")
+        {
+            keys += 1;
+            Destroy(col.gameObject);
+        }
+        Debug.Log("Health: " + health + "\nKeys: " + keys);
+    }
+
+
 }
 
 

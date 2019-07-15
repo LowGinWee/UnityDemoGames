@@ -9,6 +9,8 @@ public class CONSTANTS
     public const int ENEMY_COUNT = 5;
 
     public const float ENEMY_SPEED = 1.0f;
+    public const int START_HEALTH = 10;
+    public const int FLASK_HP = 2;
 
 }
 
